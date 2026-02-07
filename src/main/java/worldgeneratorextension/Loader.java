@@ -155,7 +155,7 @@ public class Loader extends PluginBase implements Listener {
     }
 
     public static RuntimeItemMapping getRuntimeItemMapptings() {
-        if ("Nukkit PetteriM1 Edition".equals(Server.getInstance().getName())) {
+        if ("Nukkit MOT".equals(Server.getInstance().getName())) {
             return RuntimeItems.getMapping(419);
         }
 

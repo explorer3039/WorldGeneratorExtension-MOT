@@ -1,7 +1,8 @@
-# Structure generators for Nukkit PM1E
+# Structure generators for Nukkit MOT
 
-Based on plugins made by [wode490390](https://github.com/wode490390)
+Based on plugins made by [wode490390](https://github.com/wode490390) and [PetteriM1](https://github.com/PetteriM1)
 
+- https://github.com/PetteriM1/WorldGeneratorExtension
 - https://github.com/wode490390/QuasiStructurePopulator
 - https://github.com/wode490390/ClassicVillagePopulator
 - https://github.com/wode490390/OceanMonumentPopulator
@@ -13,3 +14,5 @@ Based on plugins made by [wode490390](https://github.com/wode490390)
 - https://github.com/wode490390/ScatteredBuildingPopulator
 - https://github.com/wode490390/BetterVanillaGenerator
 - https://github.com/wode490390/TheEnd
+
+If you want to use it in Nukkit PM1E, please use [the original plugin](https://github.com/PetteriM1/WorldGeneratorExtension).
