@@ -34,7 +34,14 @@ public class RandomizableContainer {
                     result -= entry.getWeight();
                     if (result < 0) {
                         int index = random.nextBoundedInt(tags.length);
-                        Item item = Item.get(entry.getId(), entry.getMeta(), random.nextRange(entry.getMinCount(), entry.getMaxCount()));
+                        Item item;
+                        if (entry.isStringItem()) {
+                            item = Item.fromString(entry.getNamespacedId());
+                            item.setCount(random.nextRange(entry.getMinCount(), entry.getMaxCount()));
+                        }
+                        else {
+                            item = Item.get(entry.getId(), entry.getMeta(), random.nextRange(entry.getMinCount(), entry.getMaxCount()));
+                        }
                         if (item.getId() == Item.ENCHANT_BOOK) {
                             Enchantment enchantment = Enchantment.getEnchantment(Utils.rand(0, 35));
                             enchantment.setLevel(Utils.rand(1, enchantment.getMaxLevel()));
@@ -87,11 +94,13 @@ public class RandomizableContainer {
 
     public static class ItemEntry {
 
-        private final int id;
+        private int id = 0;
         private final int meta;
         private final int maxCount;
         private final int minCount;
         private final int weight;
+        private String namespacedId = "minecraft:air";
+        private final boolean isStringItem;
 
         public ItemEntry(int id, int weight) {
             this(id, 0, weight);
@@ -111,10 +120,24 @@ public class RandomizableContainer {
             this.maxCount = maxCount;
             this.minCount = minCount;
             this.weight = weight;
+            this.isStringItem = false;
+        }
+        
+        public ItemEntry(String namespacedId, int meta, int maxCount, int minCount, int weight) {
+            this.namespacedId = namespacedId;
+            this.meta = meta;
+            this.maxCount = maxCount;
+            this.minCount = minCount;
+            this.weight = weight;
+            this.isStringItem = true;
         }
 
         public int getId() {
             return this.id;
+        }
+        
+        public String getNamespacedId() {
+            return this.namespacedId;
         }
 
         public int getMeta() {
@@ -131,6 +154,10 @@ public class RandomizableContainer {
 
         public int getWeight() {
             return this.weight;
+        }
+        
+        public boolean isStringItem() {
+            return this.isStringItem;
         }
     }
 

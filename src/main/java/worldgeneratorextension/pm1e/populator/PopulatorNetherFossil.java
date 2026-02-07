@@ -32,7 +32,7 @@ public class PopulatorNetherFossil extends Populator {
 
     @Override
     public void populate(ChunkManager level, int chunkX, int chunkZ, NukkitRandom random, FullChunk chunk) {
-        if (random.nextBoundedInt(16) == 0 && chunk.getBiomeId(3, 3) == EnumBiome.SOULSAND_VALLEY.id) {
+        if (random.nextBoundedInt(16) == 0 && chunk.getBiomeId(3, 3) == EnumBiome.SOUL_SAND_VALLEY.id) {
             int y;
             int previous = -1;
 

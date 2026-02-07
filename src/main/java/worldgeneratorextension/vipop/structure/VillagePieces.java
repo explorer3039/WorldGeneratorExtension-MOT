@@ -9,7 +9,7 @@ import cn.nukkit.block.BlockWood;
 import cn.nukkit.block.BlockWood2;
 import cn.nukkit.blockentity.BlockEntity;
 import cn.nukkit.entity.Entity;
-import cn.nukkit.entity.passive.EntityVillagerV1;
+import cn.nukkit.entity.passive.EntityVillager;
 import cn.nukkit.level.ChunkManager;
 import cn.nukkit.level.biome.EnumBiome;
 import cn.nukkit.level.format.generic.BaseFullChunk;
@@ -358,7 +358,7 @@ public class VillagePieces {
 
                         if (this.isZombieVillage) {
                             nbt.putString("id", "ZombieVillager")
-                                    .putInt("Profession", this.getVillagerProfession(count, EntityVillagerV1.PROFESSION_FARMER));
+                                    .putInt("Profession", this.getVillagerProfession(count, EntityVillager.PROFESSION_FARMER));
                         } else {
                             nbt.putString("id", "Villager")
                                     .putInt("Profession", this.getVillagerProfession(count, ThreadLocalRandom.current().nextInt(6)));
@@ -861,7 +861,7 @@ public class VillagePieces {
 
         @Override
         protected int getVillagerProfession(int villagerCount, int profession) {
-            return EntityVillagerV1.PROFESSION_PRIEST;
+            return EntityVillager.PROFESSION_PRIEST;
         }
     }
 
@@ -989,7 +989,7 @@ public class VillagePieces {
 
         @Override
         protected int getVillagerProfession(int villagerCount, int profession) {
-            return EntityVillagerV1.PROFESSION_LIBRARIAN;
+            return EntityVillager.PROFESSION_LIBRARIAN;
         }
     }
 
@@ -1230,7 +1230,7 @@ public class VillagePieces {
 
         @Override //\\ PigHouse::getVillagerProfession(int)
         protected int getVillagerProfession(int villagerCount, int profession) {
-            return villagerCount == 0 ? EntityVillagerV1.PROFESSION_BUTCHER : super.getVillagerProfession(villagerCount, profession);
+            return villagerCount == 0 ? EntityVillager.PROFESSION_BUTCHER : super.getVillagerProfession(villagerCount, profession);
         }
     }
 
@@ -1585,7 +1585,7 @@ public class VillagePieces {
 
         @Override
         protected int getVillagerProfession(int villagerCount, int profession) {
-            return EntityVillagerV1.PROFESSION_BLACKSMITH;
+            return EntityVillager.PROFESSION_BLACKSMITH;
         }
     }
 

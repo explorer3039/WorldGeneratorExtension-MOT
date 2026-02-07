@@ -15,7 +15,7 @@ public final class LiquidUpdater {
         if (counter > 100) {
             FullChunk chunk;
             if (level instanceof Level && (chunk = level.getChunk(x >> 4, z >> 4)) != null) {
-                Block block = Block.get(((Level) level).getFullBlock(chunk, x, y, z), (Level) level, x, y, z);
+                Block block = Block.get(((Level) level).getFullBlock(chunk, x, y, z, 0), (Level) level, x, y, z);
                 ((Level) level).scheduleUpdate(block, block, 10, 0, false);
             }
             return;

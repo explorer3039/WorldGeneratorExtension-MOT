@@ -132,7 +132,7 @@ public class ReadOnlyLegacyStructureTemplate2 extends AbstractLegacyStructureTem
                     if (id == BlockID.LAVA || id == BlockID.STILL_LAVA) {
                         id = BlockID.MAGMA;
                     } else {
-                        chunk.setFullBlockId(vec.getX() & 0x0f, vec.getY(), vec.getZ() & 0x0f, BlockLayer.NORMAL, Block.STILL_WATER << Block.DATA_BITS);
+                        chunk.setFullBlockId(vec.getX() & 0x0f, vec.getY(), vec.getZ() & 0x0f, 0, Block.STILL_WATER << Block.DATA_BITS);
                     }
                 }
                 chunk.setBlock(vec.getX() & 0x0f, vec.getY(), vec.getZ() & 0x0f, id, entry.getMeta());

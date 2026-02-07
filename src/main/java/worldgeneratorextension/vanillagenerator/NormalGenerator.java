@@ -504,4 +504,8 @@ public class NormalGenerator extends Generator {
             return this.scale;
         }
     }
+    
+    @Override
+    public void populateStructure(final int chunkX, final int chunkZ) {
+    }
 }

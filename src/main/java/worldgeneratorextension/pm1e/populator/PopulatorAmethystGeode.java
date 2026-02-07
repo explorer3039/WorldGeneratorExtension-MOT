@@ -2,7 +2,6 @@ package worldgeneratorextension.pm1e.populator;
 
 import cn.nukkit.block.Block;
 import cn.nukkit.block.BlockAmethystBud;
-import cn.nukkit.block.BlockLayer;
 import cn.nukkit.level.ChunkManager;
 import cn.nukkit.level.Position;
 import cn.nukkit.level.format.FullChunk;
@@ -135,30 +134,30 @@ public class PopulatorAmethystGeode extends Populator {
 
                 if (!(pointOffset < outerLayer)) {
                     if (generateCrack && crackOffset >= crackSize && pointOffset < filling) {
-                        level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, BlockLayer.NORMAL, Block.AIR);
-                        level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, BlockLayer.WATERLOGGED, Block.AIR);
+                        level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, 0, Block.AIR);
+                        level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, 1, Block.AIR);
                     } else if (pointOffset >= filling) {
-                        level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, BlockLayer.NORMAL, Block.AIR);
-                        level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, BlockLayer.WATERLOGGED, Block.AIR);
+                        level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, 0, Block.AIR);
+                        level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, 1, Block.AIR);
                     } else if (pointOffset >= innerLayer) {
                         boolean useAlternateLayer0 = random.nextFloat() < 0.083;
                         if (useAlternateLayer0) {
-                            level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, BlockLayer.NORMAL, Block.AMETHYST_BLOCK);
-                            level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, BlockLayer.WATERLOGGED, Block.AIR);
+                            level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, 0, Block.AMETHYST_BLOCK);
+                            level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, 1, Block.AIR);
                         } else {
-                            level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, BlockLayer.NORMAL, Block.BUDDING_AMETHYST);
-                            level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, BlockLayer.WATERLOGGED, Block.AIR);
+                            level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, 0, Block.BUDDING_AMETHYST);
+                            level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, 1, Block.AIR);
                         }
 
                         if (!useAlternateLayer0 && random.nextFloat() < 0.35) {
                             potentialPlacements.add(pos.clone());
                         }
                     } else if (pointOffset >= middleLayer) {
-                        level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, BlockLayer.NORMAL, Block.CALCITE);
-                        level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, BlockLayer.WATERLOGGED, Block.AIR);
+                        level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, 0, Block.CALCITE);
+                        level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, 1, Block.AIR);
                     } else if (pointOffset >= outerLayer) {
-                        level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, BlockLayer.NORMAL, Block.SMOOTH_BASALT);
-                        level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, BlockLayer.WATERLOGGED, Block.AIR);
+                        level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, 0, Block.SMOOTH_BASALT);
+                        level.setBlockAtLayer((int) pos.x, (int) pos.y, (int) pos.z, 1, Block.AIR);
                     }
                 }
             }
@@ -172,8 +171,8 @@ public class PopulatorAmethystGeode extends Populator {
                     if (level.getBlockIdAt((int) side.x, (int) side.y, (int) side.z) == Block.AIR) {
                         BlockAmethystBud amethyst = (BlockAmethystBud) Block.get(blockId);
                         amethyst.setBlockFace(direction);
-                        level.setBlockAtLayer((int) side.x, (int) side.y, (int) side.z, BlockLayer.NORMAL, amethyst.getId(), amethyst.getDamage());
-                        level.setBlockAtLayer((int) side.x, (int) side.y, (int) side.z, BlockLayer.WATERLOGGED, Block.AIR);
+                        level.setBlockAtLayer((int) side.x, (int) side.y, (int) side.z, 0, amethyst.getId(), amethyst.getDamage());
+                        level.setBlockAtLayer((int) side.x, (int) side.y, (int) side.z, 1, Block.AIR);
                         break;
                     }
                 }
